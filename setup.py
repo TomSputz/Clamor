@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import clamor.meta
 import re
 import sys
 from pathlib import Path
@@ -11,8 +12,7 @@ ROOT = Path(__file__).parent
 if sys.version_info < (3, 5):
     raise SystemExit('Clamor requires Python 3.5+, consider upgrading.')
 
-with open(str(ROOT / 'clamor' / 'meta.py'), encoding='utf-8') as f:
-    VERSION = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
+VERSION = clamor.meta.__version__
 
 with open(str(ROOT / 'README.rst'), encoding='utf-8') as f:
     README = f.read()

@@ -13,6 +13,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import clamor.meta
 import os
 import re
 import sys
@@ -26,11 +27,8 @@ project = 'Clamor'
 copyright = '2019, Valentin B'
 author = 'Valentin B.'
 
-# The short X.Y version
-with open('../../clamor/meta.py', encoding='utf-8') as f:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
 # The full version, including alpha/beta/rc tags
-release = version
+release = clamor.meta.__version__
 
 html_favicon = '_static/favicon.ico'
 html_logo = '_static/logo.png'
